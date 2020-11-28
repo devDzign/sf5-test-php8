@@ -144,14 +144,14 @@ tests: prepare-test test-simple
 
 test-simple: ## test simple
 test-simple: vendor
-	vendor\bin\simple-phpunit
+	vendor/bin/simple-phpunit
 
 analyze: ## require file
 analyze: vendor
 	composer valid
 	php bin/console d:s:valid
-	vendor\bin\phpcbf
-	vendor\bin\phpcs
+	vendor/bin/phpcbf
+	vendor/bin/phpcs
 
 prepare-dev: ## prepare environment develop
 	yarn install
