@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row mt-5">
+
+            <div class="col-12 d-flex flex-column justify-content-center align-items-center" name="login-form">
+
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+                {% if app.user %}
+                    <div class="mb-3">
+                        You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    </div>
+                {% endif %}
+
+                <div class="card shadow-lg bg-white rounded border-primary" style="width: 18rem;">
+                    <div class="card-header text-white bg-primary mb-3">
+                        <h1 class="h3 mb-3 font-weight-normal text-center">Please sign in</h1>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" class="" name="login">
+
+                            <label for="inputEmail">Email</label>
+                            <input
+                                    type="email" value="{{ last_username }}"
+                                    name="email" id="inputEmail"
+                                    class="form-control"
+                                    required autofocus
+                            >
+
+                            <label for="inputPassword">Password</label>
+                            <input
+                                    type="password"
+                                    name="password"
+                                    id="inputPassword"
+                                    class="form-control" required
+                            >
+
+                            <input type="hidden" name="_csrf_token"
+                                   value="{{ csrf_token('authenticate') }}"
+                            >
+
+                            <button class="btn btn-lg btn-primary mt-2 align-self-center" type="submit">
+                                Sign in
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
