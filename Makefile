@@ -148,7 +148,7 @@ test-simple: ## test simple
 analyze: ## require file
 analyze: vendor
 	composer valid
-	php bin/console d:s:valid
+	php bin/console d:s:valid --skip-sync --env=test
 	php bin/phpcbf
 	php bin/phpcs
 
