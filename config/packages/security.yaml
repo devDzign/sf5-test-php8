@@ -19,13 +19,14 @@ security:
 #            anonymous: true
             lazy: true
             provider: app_user_provider
+            user_checker: App\Security\UserChecker
             guard:
                 authenticators:
                     - App\Security\Guard\WebAuthenticator
             logout:
                 path: app_logout
                 # where to redirect after logout
-                # target: app_any_route
+                target: app_login
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
