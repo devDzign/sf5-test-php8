@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boostrap{% endblock %}
+
+{% block body %}
+
+    {% include 'ui/components/nav-bar.html.twig' %}
+
+    <!-- main content -->
+
+    <div class="container-fluid">
+        <div class="row">
+            {% include 'ui/components/sidebar.html.twig' %}
+            {% include 'ui/components/dashborad.html.twig' with {'chart': chart} %}
+        </div>
+    </div>
+
+    <div class="modal fade" id="sign-out">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"> Already want to leave</h4>
+                    <button class="close" type="button" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    It is sad to see go. please Logout to leave
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Stay Here</button>
+                    <button class="btn btn-danger" type="button" data-dismiss="modal">Stay Here</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $('.navbar-toggler').html('<i class="fa fa-arrow-down fa-3x text-white"></i>');
+    </script>
+
+{% endblock %}
+

@@ -1,0 +1,10 @@
+App\Entity\Category:
+  category_{1..6}:
+    name: '<country()>'
+    description: '<paragraph(1)>'
+
+App\Entity\Product:
+  product_{1..60}:
+    name: '<city()>'
+    description: '<paragraph(2)>'
+    category: '@category_*'

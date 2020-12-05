@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryController!{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+
+        <div class="row d-flex flex-column justify-content-center align-items-center">
+            <div class="col-6 m-5 shadow-lg bg-white rounded">
+                    <div class="row">
+                        <div class="col-6 shadow-lg bg-white rounded m-0 card-anim">
+                            <h1>tete1</h1>
+                        </div>
+                        <div class="col-6 shadow-lg bg-white rounded m-0 card-anim">
+                            <h1>tete1</h1>
+                        </div>
+                        <div class="col-6 shadow-lg bg-white rounded m-0 card-anim">
+                            <h1>tete1</h1>
+                        </div>
+                        <div class="col-6 shadow-lg bg-white rounded m-0 card-anim">
+                            <h1>tete1</h1>
+                        </div>
+                    </div>
+
+
+            </div>
+        </div>
+
+
+        <div class="row mt-5">
+            <categories-menu data-categories="{{ categories }}" class="col-12 mb-5"></categories-menu>
+
+            <div class="col-12">
+                <statistic-dashboard data-chart="{{ chart }}" class="row flex-row align-items-center justify-content-center"/>
+            </div>
+
+            <produits-list
+                    data-category="{{ categoryId }}"
+                    class="col-12 d-flex flex-row align-items-center justify-content-center flex-wrap"
+            />
+        </div>
+    </div>
+{% endblock %}

@@ -1,7 +1,16 @@
 @import "~bootstrap/scss/bootstrap";
 
-*{
-  margin: 0;
-  padding: 0;
-  border: 0;
+//*{
+//  margin: 0;
+//  padding: 0;
+//  border: 0;
+//}
+
+
+.card-anim:hover {
+  transform: translate(-20px, 10px);
+}
+
+.card-anim {
+  transition: transform 330ms ease-in-out;
 }
