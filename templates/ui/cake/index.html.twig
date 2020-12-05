@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Grandam's{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('grandma') }}
+{% endblock %}
+
+
+{% block body %}
+    
+    <header id="header">
+        {{ include('ui/cake/components/navbar.html.twig') }}
+    </header>
+
+{#     {{ react_component('Categories', {'props': { name: 'test', url:'{{ path("root") }}' }} ) }}#}
+
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('grandma') }}
+{% endblock %}
+

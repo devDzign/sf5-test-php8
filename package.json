@@ -20,7 +20,8 @@
         "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",
-        "build": "encore production --progress"
+        "build": "encore production --progress",
+        "srr": "encore dev --config webpack.config.serverside.js --watch"
     },
     "dependencies": {
         "chart.js": "^2.9.4",
@@ -29,6 +30,7 @@
         "react": "^17.0.1",
         "react-chartjs-2": "^2.11.1",
         "react-dom": "^17.0.1",
-        "react-google-charts": "^3.0.15"
+        "react-google-charts": "^3.0.15",
+        "react-on-rails": "^12.0.5-beta.0"
     }
 }
