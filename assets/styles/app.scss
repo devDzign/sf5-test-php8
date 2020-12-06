@@ -1,6 +1,6 @@
 @import "global";
 
-// login
+// login and register
 .max-height-login {
   min-height: 100vh;
 }
@@ -9,3 +9,62 @@
   color: var(--mainBlack);
   margin-top: -4rem;
 }
+
+// sections store
+
+.store {
+  background: rgb(238, 238, 238);
+}
+
+// filters
+.sortBtn{
+
+}
+
+.fliter-btn{
+
+}
+
+// items products
+
+.single-item {
+  transition: all 0.3s linear;
+}
+
+.single-item:hover {
+  box-shadow: 0 10px 15px rgb(0, 0, 0);
+}
+
+.img-container {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.store-img {
+  transition: all 1s ease-in-out;
+}
+
+.img-container:hover .store-img {
+  //-webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.store-item-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.75rem;
+  background: rgb(249, 228, 148);
+  border-top-left-radius: 1rem;
+  transition: all 1s ease-in-out;
+  transform: translate(100%, 100%);
+}
+.img-container:hover .store-item-icon {
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.store-item-icon:hover {
+  color: #fff;
+}
+

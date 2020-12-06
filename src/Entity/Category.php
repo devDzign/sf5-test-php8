@@ -29,7 +29,6 @@ class Category
 
     /**
      * @ORM\Column(type="text")
-     * @Groups({"category_read"})
      */
     private ?string $description;
 

@@ -3,41 +3,32 @@
 {% block title %}Hello CategoryController!{% endblock %}
 
 {% block body %}
-    <div class="container-fluid">
-
-        <div class="row d-flex flex-column justify-content-center align-items-center">
-            <div class="col-6 m-5 shadow-lg bg-white rounded">
-                    <div class="row">
-                        <div class="col-6 shadow-lg bg-white rounded m-0 card-anim">
-                            <h1>tete1</h1>
-                        </div>
-                        <div class="col-6 shadow-lg bg-white rounded m-0 card-anim">
-                            <h1>tete1</h1>
-                        </div>
-                        <div class="col-6 shadow-lg bg-white rounded m-0 card-anim">
-                            <h1>tete1</h1>
-                        </div>
-                        <div class="col-6 shadow-lg bg-white rounded m-0 card-anim">
-                            <h1>tete1</h1>
-                        </div>
-                    </div>
-
-
+    <section id="store" class="store py-5">
+        <div class="container-fluid">
+            <!-- section title -->
+            <div class="row">
+                <div class="col-10 mx-auto col-sm-6 text-center">
+                    <h1 class="text-capitalize">our <strong class="banner-title">store</strong></h1>
+                </div>
             </div>
+
+            <!-- fitlers buttons -->
+            {{ react_component('CategoriesFilters', {'props': props , 'rendering': 'client_side' } ) }}
+            <!-- end of filters buttons -->
         </div>
+        <div class="container">
+            <!-- store items -->
+            {{ react_component('ProductsList', {'props': {categoryId: categoryId}, 'rendering': 'client_side'} ) }}
+            <!-- end of store items -->
+        </div>
+    </section>
 
 
+    <div class="container-fluid">
         <div class="row mt-5">
-            <categories-menu data-categories="{{ categories }}" class="col-12 mb-5"></categories-menu>
-
             <div class="col-12">
                 <statistic-dashboard data-chart="{{ chart }}" class="row flex-row align-items-center justify-content-center"/>
             </div>
-
-            <produits-list
-                    data-category="{{ categoryId }}"
-                    class="col-12 d-flex flex-row align-items-center justify-content-center flex-wrap"
-            />
         </div>
     </div>
 {% endblock %}

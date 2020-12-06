@@ -13,7 +13,6 @@ Encore
     .setPublicPath('/build')
     .addEntry('app', './assets/app.js')
     .addEntry('grandma', './assets/app-grandma.js')
-    .addEntry('grandma', './assets/app-grandma.js')
     .addEntry('admin', './assets/admin.js')
     // .addEntry('server-bundle', './assets/js/srr/registration.js')
     .copyFiles({

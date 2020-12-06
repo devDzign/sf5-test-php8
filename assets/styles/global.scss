@@ -1,2 +1,26 @@
+@import url("https://fonts.googleapis.com/css?family=Kaushan+Script");
 @import "~bootstrap/scss/bootstrap";
 
+body {
+  font-family: "Kaushan Script", cursive;
+  background: #fff;
+  color: #000;
+}
+
+/* global styles */
+.btn-pink {
+  color: #ef7998 !important;
+  border-color: #ef7998 !important;
+}
+.btn-black {
+  color: #000 !important;
+  border-color: #000 !important;
+}
+.btn-black:hover {
+  color: #FFFFFF !important;
+  background: #000 !important;
+}
+.btn-pink:hover {
+  color: #000 !important;
+  background: #ef7998 !important;
+}

@@ -12,6 +12,6 @@ Encore
     // so we don't need to deal with runtime.js
     .disableSingleRuntimeChunk()
     // will output as app/Resources/webpack/server-bundle.js
-    .addEntry("server-bundle", "./assets/js/srr/registration.js");
+    .addEntry("server-bundle", "./assets/js/srr/all.js");
 // export the final configuration
 module.exports = Encore.getWebpackConfig();

@@ -29,18 +29,26 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("/shop2", name="category")
+     * @Route("/shop", name="category", options = { "expose" = true },)
      * @param Request $request
      *
      * @return Response
      */
     public function index(Request $request): Response
     {
+        $categories =  $this->getDoctrine()->getRepository(Category::class)->findAll();
         return $this->render(
             'ui/category/index.html.twig',
             [
+                'props' => $this->serializer->serialize(
+                    ['categories' => $categories],
+                    'json',
+                    [
+                        "groups" => ["category_read"],
+                    ]
+                ),
                 'categories' => $this->serializer->serialize(
-                    $this->getDoctrine()->getRepository(Category::class)->findAll(),
+                    $categories,
                     'json',
                     [
                         "groups" => ["category_read"],
