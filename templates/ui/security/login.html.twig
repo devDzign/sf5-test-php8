@@ -3,11 +3,10 @@
 {% block title %}Log in{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row mt-5">
 
-            <div class="col-12 d-flex flex-column justify-content-center align-items-center" name="login-form">
-
+    <div class="container-fluid">
+        <div class="row max-height-login justify-content-center align-items-center">
+            <div class="col-10 mx-auto login d-flex flex-column align-items-center justify-content-center">
                 {% if error %}
                     <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                 {% endif %}
@@ -18,9 +17,9 @@
                     </div>
                 {% endif %}
 
-                <div class="card shadow-lg bg-white rounded border-primary" style="width: 18rem;">
-                    <div class="card-header text-white bg-primary mb-3">
-                        <h1 class="h3 font-weight-normal text-center">Please sign in</h1>
+                <div class="card shadow shadow-lg" style="width: 25rem">
+                    <div class="card-header bg-info text-center text-uppercase">
+                        Login
                     </div>
                     <div class="card-body">
                         <form method="post" class="" name="login">
@@ -45,7 +44,7 @@
                                    value="{{ csrf_token('authenticate') }}"
                             >
 
-                            <button class="btn btn-lg btn-primary mt-2 align-self-center" type="submit">
+                            <button class="btn btn-block btn-outline-dark mt-2 align-self-center" type="submit">
                                 Sign in
                             </button>
 
@@ -54,8 +53,8 @@
                 </div>
 
             </div>
-
         </div>
     </div>
+
 
 {% endblock %}
