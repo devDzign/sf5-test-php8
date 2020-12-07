@@ -19,7 +19,7 @@ const ProductsList = ({categoryId}) => {
                     <div
                         className="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item sweets"
                         data-item="sweets" key={p.id}>
-                        <div className="card single-item" key={p.id}>
+                        <div className="card h-100 single-item" key={p.id}>
                             <div className="img-container">
                                 <img src="http://localhost:8080/build/images/sweets-1.jpeg" className="card-img-top store-img" alt=""/>
                                 <span className="store-item-icon">

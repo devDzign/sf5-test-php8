@@ -3,6 +3,8 @@
 namespace App\DataFixtures;
 
 use App\Entity\User;
+use App\Factory\CategoryFactory;
+use App\Factory\ProductFactory;
 use DateTimeImmutable;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -12,6 +14,9 @@ class UserFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
+
+
+        CategoryFactory::new()->many(6)->create(['products' => ProductFactory::new()->many(0, 10)]);
 
         $manager->persist((new User())
             ->setEmail('admin@email.com')
