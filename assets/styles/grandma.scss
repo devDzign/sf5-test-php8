@@ -57,7 +57,6 @@ body {
 // banner
 .max-height {
   min-height: calc(100vh - 76px);
-  background-size: cover;
   background: linear-gradient(var(--yellowTrans), var(--yellowTrans)), url("../images/headerBcg.jpeg") no-repeat fixed center;
   background-size: cover;
   //background: url("../images/headerBcg.jpeg");

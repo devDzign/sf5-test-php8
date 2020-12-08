@@ -5,21 +5,7 @@
 {% block body %}
 
 <header class="header">
-
     {{ include('ui/shop/components/navbar.html.twig') }}
-
-    {{ include('ui/shop/components/banner.html.twig') }}
-    
-
-    <div class="container-fluid">
-        <div class="row">
-
-
-{#                <div class="col-12 col-md-6 h-100 align-items-center justify-content-center">#}
-{#                    {{ react_component('Home', {'props': props , 'rendering': 'client_side' } ) }}#}
-{#                </div>#}
-        </div>
-    </div>
-
+    {{ react_component('Banner', {'props': { "urlBcg": asset('build/images/shop/bcg.jpg'), "path": path('shop_home')} , 'rendering': 'client_side' } ) }}
 </header>
 {% endblock %}
