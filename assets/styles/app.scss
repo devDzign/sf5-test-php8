@@ -1,5 +1,59 @@
 @import "global";
 
+:root {
+  --mainPink: #ef7998;
+  --mainYellow: rgb(249, 228, 148);
+  --mainWhite: #fff;
+  --mainBlack: #000;
+  --yellowTrans: rgba(150, 228, 000, 0.5);
+  --mainGrey: rgb(238, 238, 238);
+}
+
+body {
+  font-family: "Kaushan Script", cursive;
+  background: var(--mainWhite);
+  color: var(--mainBlack);
+}
+
+// nav link
+
+.navbar-toggler {
+  outline: none !important;
+}
+
+.toggler-icon {
+  font-size: 2.5rem;
+  color: var(--mainPink)
+}
+
+.nav-link {
+  color: var(--mainPink);
+  transition: all 1s ease;
+  font-size: 1.5rem;
+}
+
+.nav-link:hover {
+  color: var(--mainBlack);
+}
+
+.cart-info__icon {
+  color: var(--mainBlack);
+  cursor: pointer;
+}
+
+.cart-info {
+  border: 0.1rem solid var(--mainBlack);
+  color: var(--mainBlack);
+  border-radius: 0.25rem;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+}
+
+.cart-info:hover {
+  background-color: var(--mainPink);
+  color: #FFFFFF;
+}
+
 // login and register
 .max-height-login {
   min-height: 100vh;
@@ -16,14 +70,6 @@
   background: rgb(238, 238, 238);
 }
 
-// filters
-.sortBtn{
-
-}
-
-.fliter-btn{
-
-}
 
 // items products
 
@@ -68,3 +114,40 @@
   color: #fff;
 }
 
+
+/* cart */
+.cart {
+  position: absolute;
+  min-height: 160px;
+  min-height: 10rem;
+  background: rgba(255, 255, 255, 0.5);
+  top: 75px;
+  right: 0;
+  transition: all 0.3s ease-in-out;
+  width: 0;
+  overflow: hidden;
+}
+.show-cart {
+  width: 288px;
+  width: 18rem;
+  padding: 32px 24px;
+  padding: 2rem 1.5rem;
+  transform: rotateY(-360deg);
+}
+.cart-item-remove {
+  color: #ef7998;
+  transition: all 1s ease-in-out;
+}
+.cart-item {
+  -webkit-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
+}
+.cart-item-remove:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  color: #000;
+}
+.cart-item-price {
+  font-size: 12.8px;
+  font-size: 0.8rem;
+}

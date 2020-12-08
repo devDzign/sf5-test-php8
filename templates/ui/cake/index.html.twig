@@ -2,9 +2,7 @@
 
 {% block title %}Grandam's{% endblock %}
 
-{% block stylesheets %}
-    {{ encore_entry_link_tags('grandma') }}
-{% endblock %}
+
 
 
 {% block body %}
@@ -19,7 +17,9 @@
 {#     {{ react_component('Categories', {'props': { name: 'test', url:'{{ path("root") }}' }} ) }}#}
 
 {% endblock %}
-
+{% block stylesheets %}
+    {{ encore_entry_link_tags('grandma') }}
+{% endblock %}
 
 {% block javascripts %}
     {{ encore_entry_script_tags('grandma') }}

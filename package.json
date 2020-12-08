@@ -26,6 +26,7 @@
     "dependencies": {
         "chart.js": "^2.9.4",
         "event-source-polyfill": "^1.0.21",
+        "glyphicons": "^0.2.0",
         "randomcolor": "^0.6.2",
         "react": "^17.0.1",
         "react-chartjs-2": "^2.11.1",

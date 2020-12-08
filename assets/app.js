@@ -16,3 +16,16 @@ import './js/htmlElements/dougnut-chart'
 
 // srr
 import './js/srr/all'
+
+const element = document.getElementById("cart-info");
+
+
+if (element) {
+    element.addEventListener("click", function () {
+        const cart = document.getElementById("cart");
+        cart.classList.toggle("show-cart");
+        console.log(cart);
+    });
+}
+
+
