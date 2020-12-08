@@ -20,6 +20,20 @@ body {
   font-family: "Calligraffitti", cursive;
 }
 
+.btn-yellow {
+  background: var(--mainYellow);
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  color: var(--mainBlack);
+  border-radius: 0!important;
+}
+
+.btn-yellow:hover{
+  background: var(--mainBlack);
+  color: var(--mainYellow);
+  transform: scale(1.2, 1);
+}
+
 //nav bar
 
 .navbar-toggler{
@@ -64,5 +78,15 @@ body {
 
 .cart--items:hover  {
   transform: scale(2, 2);
+}
+
+// Banner
+
+.banner {
+  height: calc(100vh - 74.78px);
+  background: url("../images/shop/bcg.jpg") no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 
