@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <title>
+            {% block title %}
+                Welcome!
+            {% endblock %}
+        </title>
+
+        {{ encore_entry_link_tags('shop') }}
+        {% block stylesheets %}
+        {% endblock %}
+
+    </head>
+    <body>
+
+        {% block body %}
+        {% endblock %}
+
+        {{ encore_entry_script_tags('shop') }}
+        <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
+        {% block javascripts %}
+        {% endblock %}
+    </body>
+</html>

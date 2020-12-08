@@ -15,7 +15,7 @@ import './js/htmlElements/pie-chart'
 import './js/htmlElements/dougnut-chart'
 
 // srr
-import './js/srr/all'
+import './ssr-all'
 
 const element = document.getElementById("cart-info");
 

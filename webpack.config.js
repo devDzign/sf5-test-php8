@@ -15,10 +15,15 @@ Encore
     .addEntry('grandma', './assets/app-grandma.js')
     .addEntry('admin', './assets/admin.js')
     .addEntry('cv', './assets/cv.js')
+    .addEntry('shop', './assets/shop.js')
     // .addEntry('server-bundle', './assets/js/srr/registration.js')
     .copyFiles({
         from: './assets/images',
         to: 'images/[path][name].[ext]'
+    })
+    .copyFiles({
+        from: './assets/images/shop',
+        to: 'images/shop/[path][name].[ext]'
     })
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
