@@ -2,6 +2,9 @@
     "beberlei/doctrineextensions": {
         "version": "v1.3.0"
     },
+    "behat/transliterator": {
+        "version": "v1.3.0"
+    },
     "dama/doctrine-test-bundle": {
         "version": "4.0",
         "recipe": {
@@ -122,6 +125,9 @@
         "files": [
             "./config/routes/fos_js_routing.yaml"
         ]
+    },
+    "gedmo/doctrine-extensions": {
+        "version": "v3.0.0"
     },
     "hautelook/alice-bundle": {
         "version": "2.1",

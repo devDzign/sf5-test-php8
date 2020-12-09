@@ -5,6 +5,8 @@ services:
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+            $uploadsPath: '%kernel.project_dir%/public/uploads'
 
     App\:
         resource: '../src/'
@@ -21,3 +23,5 @@ services:
     App\EntityListener\:
         resource: '../src/EntityListener'
         tags: ['doctrine.orm.entity_listener']
+
+    Symfony\Component\Asset\Context\RequestStackContext: '@assets.context'

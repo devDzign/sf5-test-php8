@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
+use App\Service\UploaderHelper;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -32,6 +33,12 @@ class Product
      * @Groups({"read_product"})
      */
     private string $description;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"read_product"})
+     */
+    private string $nameFile;
 
     /**
      * @ORM\Column(type="datetime_immutable")
@@ -117,5 +124,30 @@ class Product
     public function setPrice(Price $price): void
     {
         $this->price = $price;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNameFile(): string
+    {
+        return $this->nameFile;
+    }
+
+    /**
+     * @param string $nameFile
+     *
+     * @return $this
+     */
+    public function setNameFile(string $nameFile): self
+    {
+        $this->nameFile = $nameFile;
+
+        return $this;
+    }
+
+    public function getImagePath()
+    {
+        return UploaderHelper::ARTICLE_IMAGE . '/' . $this->getNameFile();
     }
 }
