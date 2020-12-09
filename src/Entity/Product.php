@@ -6,6 +6,7 @@ use App\Repository\ProductRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
@@ -38,11 +39,15 @@ class Product
     private DateTimeImmutable $createdAt;
 
     /**
+     * @ORM\Embedded(class="Price")
+     * @Assert\Valid()
+     */
+    private Price $price;
+
+    /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="products")
      */
     private Category $category;
-
-
 
     /**
      * Product constructor.
@@ -96,5 +101,21 @@ class Product
         $this->category = $category;
 
         return $this;
+    }
+
+    /**
+     * @return Price
+     */
+    public function getPrice(): Price
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param Price $price
+     */
+    public function setPrice(Price $price): void
+    {
+        $this->price = $price;
     }
 }

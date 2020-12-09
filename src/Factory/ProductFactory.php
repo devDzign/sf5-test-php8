@@ -2,6 +2,7 @@
 
 namespace App\Factory;
 
+use App\Entity\Price;
 use App\Entity\Product;
 use App\Repository\ProductRepository;
 use Zenstruck\Foundry\RepositoryProxy;
@@ -33,7 +34,10 @@ final class ProductFactory extends ModelFactory
             'description' =>  self::faker()->paragraphs(
                 self::faker()->numberBetween(1, 4),
                 true
-            )
+            ),
+            'price' => (new Price())
+                ->setUnitPrice(self::faker()->randomFloat(10, 3, 1000))
+                ->setVat(2.5)
         ];
     }
 
