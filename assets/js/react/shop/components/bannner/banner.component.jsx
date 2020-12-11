@@ -4,8 +4,8 @@ import styled from 'styled-components'
 
 const BannerStyle = styled.div`
     height: calc(100vh - 74.78px);
-    background-size: cover;
     background: url(${props => props.url}) no-repeat fixed center;
+    background-size: cover;
 `
 
 const Banner = (props) => {

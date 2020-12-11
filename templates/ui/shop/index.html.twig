@@ -8,6 +8,7 @@
         {{ include('ui/shop/components/navbar.html.twig') }}
         {{ react_component('Banner', {'props': { "urlBcg": asset('build/images/shop/bcg.jpg'), "path": path('shop_home')} , 'rendering': 'client_side' } ) }}
     </header>
+
     <section id="featured py-5">
         <div class="container">
             <div class="row my-3">
@@ -22,15 +23,11 @@
                     </p>
                 </div>
             </div>
-            <div class="row">
-                {% for p in products %}
-                    <div class="col-10 col-md-6 col-lg-3 mx-auto text-center">
-                      <img src="{{ uploaded_asset(p.getImagePath) }}">
+                {{ react_component('ProductsFeatured', {'props': {} , 'rendering': 'client_side' } ) }}
 
-                    </div>
-                {% endfor %}
-                
-            </div>
         </div>
     </section>
 {% endblock %}
+
+
+{# <img src="{{ uploaded_asset(p.getImagePath) }}">  #}

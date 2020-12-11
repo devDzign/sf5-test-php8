@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ProductRepository;
 use App\Service\UploaderHelper;
 use DateTimeImmutable;
@@ -11,6 +12,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
+ * @ApiResource(
+ *     collectionOperations={"get"={"method"="GET", "options"={"expose"=true},  "normalization_context"={"groups"={"read_product"}}}},
+ *     itemOperations={"get"}
+ * )
  */
 class Product
 {
@@ -146,7 +151,11 @@ class Product
         return $this;
     }
 
-    public function getImagePath()
+    /**
+     * @Groups({"read_product"})
+     * @return string
+     */
+    public function getImagePath(): string
     {
         return UploaderHelper::ARTICLE_IMAGE . '/' . $this->getNameFile();
     }

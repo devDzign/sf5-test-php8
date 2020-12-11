@@ -43,21 +43,4 @@ class ShopController extends AbstractController
             ]
         );
     }
-
-
-    /**
-     * @Route("/shop/api/products", name="shop_api_products")
-     */
-    public function product(): Response
-    {
-        return $this->json(
-            [
-                'products' => $this
-                    ->getDoctrine()
-                    ->getRepository(Product::class)
-                    ->findAll()
-            ],
-
-        );
-    }
 }

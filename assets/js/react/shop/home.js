@@ -1,6 +1,6 @@
 import ReactOnRails from 'react-on-rails';
-import Home from './containers/home.container';
 import Banner from './components/bannner/banner.component';
+import ProductsFeatured from './containers/products-featured.container';
 
-ReactOnRails.register({ Home });
 ReactOnRails.register({ Banner });
+ReactOnRails.register({ ProductsFeatured });
