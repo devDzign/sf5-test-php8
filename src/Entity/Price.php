@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -16,12 +17,14 @@ class Price
      * @ORM\Column(type="integer")
      * @Assert\NotBlank
      * @Assert\GreaterThan(0)
+     * @Groups({"read_product"})
      */
     private int $unitPrice = 0;
 
     /**
      * @ORM\Column(type="decimal", precision=5, scale=2)
      * @Assert\NotBlank
+     * @Groups({"read_product"})
      */
     private float $vat = 0;
 

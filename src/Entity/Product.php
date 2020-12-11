@@ -53,6 +53,7 @@ class Product
     /**
      * @ORM\Embedded(class="Price")
      * @Assert\Valid()
+     * @Groups({"read_product"})
      */
     private Price $price;
 

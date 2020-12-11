@@ -52,24 +52,26 @@ const Wrapper = styled.div`
   }
 `
 
-const ProductCard = (props) => {
+const ProductCard = React.memo((props) => {
+
+    const {img, product} = {...props}
     return (
             <Wrapper className="col-10 col-md-6 col-lg-4 mx-auto text-center">
                 <div className="featured--container p-5">
-                    <img src={`/uploads/${props.img}`} alt=""/>
+                    <img src={`/uploads/${img}`} alt=""/>
                     <span className="featured--search-icon"
                           data-toggle="model"
                           data-target="#productModal"
                     > <i className="fa fa-search"></i></span>
                     <a href="#" className="featured--store-link text-capitalize">add to cart</a>
                 </div>
-                <h6 className="text-capitalize text-center my-2">spcial product</h6>
+                <h6 className="text-capitalize text-center my-2">{product.name}</h6>
                 <h6 className="text-center">
-                    <span className="text-muted old--price mx-2">200 €</span>
-                    <span>100 €</span>
+                    <span className="text-muted old--price mx-2">{product.price.unitPrice} €</span>
+                    <span>{product.price.unitPrice} €</span>
                 </h6>
             </Wrapper>
     );
-};
+});
 
 export default ProductCard;

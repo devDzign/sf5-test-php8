@@ -1,13 +1,15 @@
 import axios from "axios";
 
-axios.defaults.headers["Accept"] = "application/ld+json";
-axios.defaults.headers["Content-Type"] = "application/json";
+
 
 export const jsonLdFetch = async(url, method = 'GET', data = null, token = null) => {
 
+    axios.defaults.headers["Accept"] = "application/ld+json";
+    axios.defaults.headers["Content-Type"] = "application/json";
+
     const options = {
         method: method,
-        url: `${url}.jsonld`
+        url: `${url}`
     };
 
     if (token) {

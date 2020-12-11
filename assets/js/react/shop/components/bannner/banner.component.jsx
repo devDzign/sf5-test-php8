@@ -8,7 +8,7 @@ const BannerStyle = styled.div`
     background-size: cover;
 `
 
-const Banner = (props) => {
+const Banner = React.memo((props) => {
 
     return (
         <>
@@ -21,6 +21,6 @@ const Banner = (props) => {
             </BannerStyle>
         </>
     );
-};
+});
 
 export default Banner;
