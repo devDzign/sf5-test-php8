@@ -15,7 +15,6 @@ class UserFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
 
-
         CategoryFactory::new()->many(6)->create(['products' => ProductFactory::new()->many(0, 10)]);
 
         $manager->persist((new User())

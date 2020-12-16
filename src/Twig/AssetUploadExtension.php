@@ -31,5 +31,4 @@ class AssetUploadExtension extends AbstractExtension
         return $this->uploaderHelper
             ->getPublicPath($path);
     }
-
 }

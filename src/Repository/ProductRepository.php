@@ -74,5 +74,4 @@ class ProductRepository extends ServiceEntityRepository
 
         return $query;
     }
-
 }

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Model;
 
 use App\Entity\Category;
@@ -37,5 +36,4 @@ class SearchData
      * @var boolean
      */
     public bool $promo = false;
-
 }
