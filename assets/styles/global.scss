@@ -1,16 +1,25 @@
 @import "~bootstrap/scss/bootstrap";
 
-//*{
-//  margin: 0;
-//  padding: 0;
-//  border: 0;
-//}
-
-
-.card-anim:hover {
-  transform: translate(-20px, 10px);
+body {
+  font-family: "Kaushan Script", cursive;
+  background: #fff;
+  color: #000;
 }
 
-.card-anim {
-  transition: transform 330ms ease-in-out;
+/* global styles */
+.btn-pink {
+  color: #ef7998 !important;
+  border-color: #ef7998 !important;
+}
+.btn-black {
+  color: #000 !important;
+  border-color: #000 !important;
+}
+.btn-black:hover {
+  color: #FFFFFF !important;
+  background: #000 !important;
+}
+.btn-pink:hover {
+  color: #000 !important;
+  background: #ef7998 !important;
 }

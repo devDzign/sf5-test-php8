@@ -1,17 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 d-flex flex-row justify-content-center">
 
-                <div class="card mt-5 shadow-lg bg-white rounded border-primary" style="width: 22rem">
-                    <h5 class="card-header text-center text-white bg-primary mb-3">Registration</h5>
+
+    <div class="container-fluid">
+        <div class="row max-height-login justify-content-center align-items-center">
+            <div class="col-10 mx-auto login d-flex flex-column align-items-center justify-content-center">
+
+                <div class="card shadow shadow-lg" style="width: 25rem">
+                    <div class="card-header bg-info text-center text-uppercase">
+                        Registration
+                    </div>
                     <div class="card-body">
                         {{ form_start(form) }}
                         {{ form_errors(form) }}
                         {{ form_rest(form) }}
-                        <button class="btn btn-primary">S'inscrire</button>
+                        <button class="btn btn-outline-dark btn-block">S'inscrire</button>
                         {{ form_end(form) }}
                     </div>
                 </div>
@@ -19,5 +23,4 @@
             </div>
         </div>
     </div>
-
 {% endblock %}

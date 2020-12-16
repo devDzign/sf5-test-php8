@@ -2,13 +2,20 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ProductRepository;
+use App\Service\UploaderHelper;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
+ * @ApiResource(
+ *     collectionOperations={"get"={"method"="GET", "options"={"expose"=true},  "normalization_context"={"groups"={"read_product"}}}},
+ *     itemOperations={"get"}
+ * )
  */
 class Product
 {
@@ -33,16 +40,27 @@ class Product
     private string $description;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"read_product"})
+     */
+    private string $nameFile;
+
+    /**
      * @ORM\Column(type="datetime_immutable")
      */
     private DateTimeImmutable $createdAt;
 
     /**
+     * @ORM\Embedded(class="Price")
+     * @Assert\Valid()
+     * @Groups({"read_product"})
+     */
+    private Price $price;
+
+    /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="products")
      */
     private Category $category;
-
-
 
     /**
      * Product constructor.
@@ -98,4 +116,48 @@ class Product
         return $this;
     }
 
+    /**
+     * @return Price
+     */
+    public function getPrice(): Price
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param Price $price
+     */
+    public function setPrice(Price $price): void
+    {
+        $this->price = $price;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNameFile(): string
+    {
+        return $this->nameFile;
+    }
+
+    /**
+     * @param string $nameFile
+     *
+     * @return $this
+     */
+    public function setNameFile(string $nameFile): self
+    {
+        $this->nameFile = $nameFile;
+
+        return $this;
+    }
+
+    /**
+     * @Groups({"read_product"})
+     * @return string
+     */
+    public function getImagePath(): string
+    {
+        return UploaderHelper::ARTICLE_IMAGE . '/' . $this->getNameFile();
+    }
 }

@@ -1,0 +1,33 @@
+{% extends 'base-shop.html.twig' %}
+
+{% block title %}Shop home{% endblock %}
+
+{% block body %}
+
+    <header class="header">
+        {{ include('ui/shop/components/navbar.html.twig') }}
+        {{ react_component('Banner', {'props': { "urlBcg": asset('build/images/shop/bcg.jpg'), "path": path('shop_home')} , 'rendering': 'client_side' } ) }}
+    </header>
+
+    <section id="featured py-5">
+        <div class="container">
+            <div class="row my-3">
+                <div class="col-10 mx-auto text-center">
+                    <h1 class="text-uppercase"> featured products</h1>
+                    <p class="text-muted">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Consequuntur corporis dolore,
+                        eaque enim excepturi harum hic illo laudantium non numquam,
+                        quo quod quos ullam.
+                        Atque dicta eos esse fugit iste?
+                    </p>
+                </div>
+            </div>
+                {{ react_component('ProductsFeatured', {'props': {} , 'rendering': 'client_side' } ) }}
+
+        </div>
+    </section>
+{% endblock %}
+
+
+{# <img src="{{ uploaded_asset(p.getImagePath) }}">  #}

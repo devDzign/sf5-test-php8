@@ -1,5 +1,25 @@
 {
+    "api-platform/api-pack": {
+        "version": "v1.3.0"
+    },
+    "api-platform/core": {
+        "version": "2.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.5",
+            "ref": "a93061567140e386f107be75340ac2aee3f86cbf"
+        },
+        "files": [
+            "./config/packages/api_platform.yaml",
+            "./config/routes/api_platform.yaml",
+            "./src/Entity/.gitignore"
+        ]
+    },
     "beberlei/doctrineextensions": {
+        "version": "v1.3.0"
+    },
+    "behat/transliterator": {
         "version": "v1.3.0"
     },
     "dama/doctrine-test-bundle": {
@@ -111,6 +131,24 @@
     "fakerphp/faker": {
         "version": "v1.12.0"
     },
+    "fig/link-util": {
+        "version": "1.1.1"
+    },
+    "friendsofsymfony/jsrouting-bundle": {
+        "version": "2.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "2.3",
+            "ref": "a9f2e49180f75cdc71ae279a929c4b2e0638de84"
+        },
+        "files": [
+            "./config/routes/fos_js_routing.yaml"
+        ]
+    },
+    "gedmo/doctrine-extensions": {
+        "version": "v3.0.0"
+    },
     "hautelook/alice-bundle": {
         "version": "2.1",
         "recipe": {
@@ -125,6 +163,15 @@
             "./fixtures/.gitignore"
         ]
     },
+    "knplabs/knp-components": {
+        "version": "v3.0.0"
+    },
+    "knplabs/knp-paginator-bundle": {
+        "version": "v5.4.1"
+    },
+    "knplabs/knp-time-bundle": {
+        "version": "v1.13.0"
+    },
     "laminas/laminas-code": {
         "version": "3.5.0"
     },
@@ -134,11 +181,20 @@
     "laminas/laminas-zendframework-bridge": {
         "version": "1.1.1"
     },
+    "limenius/react-bundle": {
+        "version": "v5.0.3"
+    },
+    "limenius/react-renderer": {
+        "version": "v5.0.3"
+    },
     "monolog/monolog": {
         "version": "2.1.1"
     },
     "myclabs/deep-copy": {
         "version": "1.10.2"
+    },
+    "nacmartin/phpexecjs": {
+        "version": "v3.0.0"
     },
     "nelmio/alice": {
         "version": "3.2",
@@ -151,6 +207,18 @@
         "files": [
             "./config/packages/dev/nelmio_alice.yaml",
             "./config/packages/test/nelmio_alice.yaml"
+        ]
+    },
+    "nelmio/cors-bundle": {
+        "version": "1.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.5",
+            "ref": "6388de23860284db9acce0a7a5d9d13153bcb571"
+        },
+        "files": [
+            "./config/packages/nelmio_cors.yaml"
         ]
     },
     "nikic/php-parser": {
@@ -407,6 +475,9 @@
     "symfony/options-resolver": {
         "version": "v5.1.8"
     },
+    "symfony/orm-pack": {
+        "version": "v2.0.0"
+    },
     "symfony/phpunit-bridge": {
         "version": "4.3",
         "recipe": {
@@ -492,6 +563,9 @@
     },
     "symfony/serializer": {
         "version": "v5.1.8"
+    },
+    "symfony/serializer-pack": {
+        "version": "v1.0.4"
     },
     "symfony/service-contracts": {
         "version": "v2.2.0"
@@ -613,5 +687,14 @@
     },
     "webmozart/assert": {
         "version": "1.9.1"
+    },
+    "willdurand/jsonp-callback-validator": {
+        "version": "v1.1.0"
+    },
+    "willdurand/negotiation": {
+        "version": "3.0.0"
+    },
+    "zenstruck/foundry": {
+        "version": "v1.5.0"
     }
 }

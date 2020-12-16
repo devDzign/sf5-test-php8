@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CvController!{% endblock %}
+
+{% block body %}
+    {{ include('ui/cv/components/timeline-1.html.twig') }}
+{% endblock %}
+
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('cv') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('cv') }}
+{% endblock %}
