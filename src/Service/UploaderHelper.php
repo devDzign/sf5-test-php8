@@ -19,7 +19,7 @@ class UploaderHelper
 
     public function __construct(string $uploadsPath, RequestStackContext $requestStackContext)
     {
-        $this->uploadsPath = $uploadsPath;
+        $this->uploadsPath         = $uploadsPath;
         $this->requestStackContext = $requestStackContext;
     }
 
@@ -31,13 +31,17 @@ class UploaderHelper
         } else {
             $originalFilename = $file->getFilename();
         }
-        $newFilename = Urlizer::urlize(pathinfo($originalFilename, PATHINFO_FILENAME)) . '-' . uniqid('', true) . '.' . $file->guessExtension();
+        $newFilename = Urlizer::urlize(
+            pathinfo($originalFilename, PATHINFO_FILENAME)
+        ) . '-' . uniqid('', true) . '.' . $file->guessExtension();
         $file->move(
             $destination,
             $newFilename
         );
+
         return $newFilename;
     }
+
     public function getPublicPath(string $path): string
     {
         // needed if you deploy under a subdirectory
