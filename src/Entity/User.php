@@ -6,6 +6,8 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use DateTimeImmutable;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -69,11 +71,17 @@ class User implements UserInterface
      */
     private $nickname;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ToyRequest::class, mappedBy="author")
+     */
+    private $toyRequests;
+
 
 
     public function __construct()
     {
         $this->registeredAt = new DateTimeImmutable();
+        $this->toyRequests = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -205,5 +213,35 @@ class User implements UserInterface
     public function isSuspended(): bool
     {
         return $this->suspendedAt !== null;
+    }
+
+    /**
+     * @return Collection|ToyRequest[]
+     */
+    public function getToyRequests(): Collection
+    {
+        return $this->toyRequests;
+    }
+
+    public function addToyRequest(ToyRequest $toyRequest): self
+    {
+        if (!$this->toyRequests->contains($toyRequest)) {
+            $this->toyRequests[] = $toyRequest;
+            $toyRequest->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeToyRequest(ToyRequest $toyRequest): self
+    {
+        if ($this->toyRequests->removeElement($toyRequest)) {
+            // set the owning side to null (unless already changed)
+            if ($toyRequest->getAuthor() === $this) {
+                $toyRequest->setAuthor(null);
+            }
+        }
+
+        return $this;
     }
 }

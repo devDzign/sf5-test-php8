@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}WorkFlow{% endblock %}
+
+{% block body %}
+
+    <section id="featured">
+        <div class="container max-viewport">
+            <div class="row max-height-login justify-content-center align-items-center">
+                <div class="col-10 mx-auto text-center">
+                    <h1 class="text-uppercase"> Toy Request</h1>
+                    <p class="text-muted">
+                      Papa, maman, je veux un jouet ! Promet j'ai été super sage et j'ai fait tous mes devoirs !
+                    </p>
+
+                    <div>
+                       <a href="{{ path('work_flow_request') }}" class="btn btn-outline-info">Demande un jouet !</a>
+                       <a href="{{ path('work_flow_demands') }}" class="btn btn-outline-info">Traiter les demandes !</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

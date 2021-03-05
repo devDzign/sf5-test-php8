@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}WorkFlow{% endblock %}
+
+{% block body %}
+
+    <section id="featured">
+        <div class="container max-viewport">
+            <div class="row max-height-login justify-content-center align-items-center">
+
+
+                <div class="col-10 mx-auto text-center">
+                    <div class="card border border-danger shadow-lg">
+                        <div class="card-header border-bottom border-danger bg-info">
+                            Toutes les demandes
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Boy</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Date demand</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for demand in demands %}
+                                    <tr>
+                                        <th scope="row">{{ demand.author.nickname }}</th>
+                                        <td>{{ demand.name }}</td>
+                                        <td>{{ demand.createdAtAgo }}</td>
+                                        <td>
+{#                                                                                        {{ dump(workflow_transitions(demand)) }}#}
+{#                                                                                        {{ dump(workflow_marked_places(demand)) }}#}
+
+                                            {% if workflow_can(demand, 'to_dad_ok') %}
+                                                <a
+                                                        href="{{ path('work_flow_change', {'id': demand.id, 'to':'to_dad_ok' }) }}"
+                                                        class="btn btn-outline-success"
+                                                >
+                                                    OK for dad
+                                                </a>
+                                            {% endif %}
+
+                                            {% if workflow_can(demand, 'to_mum_ok') %}
+                                                <a href="{{ path('work_flow_change', {id: demand.id, to:'to_mum_ok' }) }}"  class="btn btn-outline-success">OK for mum</a>
+                                            {% endif %}
+
+                                            {% if workflow_can(demand, 'to_order') %}
+                                                <a href="{{ path('work_flow_change', {id: demand.id, to:'to_order' }) }}"  class="btn btn-outline-success">Order toy</a>
+                                            {% endif %}
+
+                                            {% if workflow_can(demand, 'to_ordered') %}
+                                                <a href="{{ path('work_flow_change', {id: demand.id, to:'to_ordered' }) }}"  class="btn btn-outline-success">Ordered</a>
+                                            {% endif %}
+
+                                            {% if workflow_can(demand, 'to_received') %}
+                                                <a href="{{ path('work_flow_change', {id: demand.id, to:'to_received' }) }}"  class="btn btn-outline-success">Toy received</a>
+                                            {% endif %}
+
+                                            {% if workflow_has_marked_place(demand, 'received') %}
+                                                <p>The Toy is received</p>
+                                            {% endif %}
+
+
+                                            {% if workflow_has_marked_place(demand, 'dad_ok') and workflow_has_marked_place(demand, 'mum_validation_pending')  and is_granted('ROLE_DAD') %}
+                                                <p>Attente de la Validation de maman</p>
+                                            {% endif %}
+
+                                            {% if workflow_has_marked_place(demand, 'mum_ok') and workflow_has_marked_place(demand, 'dad_validation_pending') and is_granted('ROLE_MUM') %}
+                                                       <p>Attente de la Validation de papa</p>
+                                            {% endif %}
+
+                                        </td>
+
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

@@ -78,7 +78,7 @@ dps: require-files
 .PHONY: composer
 
 composer: ## Run composer install
-	$(COMPOSER) install
+	$(SF) $(COMPOSER) install
 
 ##
 ## Require file

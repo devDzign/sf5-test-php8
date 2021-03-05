@@ -24,6 +24,24 @@ class UserFixtures extends Fixture
             ->setRoles(["ROLE_ADMIN"]));
 
         $manager->persist((new User())
+                              ->setEmail('dad@email.com')
+                              ->setPlainPassword('password')
+                              ->setNickname('dad')
+                              ->setRoles(["ROLE_DAD"]));
+
+        $manager->persist((new User())
+                              ->setEmail('mum@email.com')
+                              ->setPlainPassword('password')
+                              ->setNickname('mum')
+                              ->setRoles(["ROLE_MUM"]));
+
+        $manager->persist((new User())
+                              ->setEmail('boy@email.com')
+                              ->setPlainPassword('password')
+                              ->setNickname('boy')
+                              ->setRoles(["ROLE_BOY"]));
+
+        $manager->persist((new User())
             ->setEmail('user+1@email.com')
             ->setPlainPassword('password')
             ->setNickname('user+1')
